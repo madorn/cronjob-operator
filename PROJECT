@@ -1,0 +1,7 @@
+domain: tutorial.kubebuilder.io
+repo: github.com/madorn/cronjob-operator
+resources:
+- group: batch
+  kind: CronJob
+  version: v1
+version: "2"
