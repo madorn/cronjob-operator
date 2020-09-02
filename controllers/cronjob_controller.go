@@ -60,7 +60,7 @@ var (
 	scheduledTimeAnnotation = "batch.tutorial.kubebuilder.io/scheduled-at"
 )
 
-// Reconcile allows us to Reconcile
+// Reconcile performs the reconciling for a single named object
 func (r *CronJobReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	ctx := context.Background()
 	log := r.Log.WithValues("cronjob", req.NamespacedName)
@@ -356,7 +356,7 @@ var (
 	apiGVStr    = batch.GroupVersion.String()
 )
 
-//SetupWithManager sets up the manager
+// SetupWithManager adds the reconciler to the manager so that it starts when the manager is started.
 func (r *CronJobReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	// set up a real clock
 	if r.Clock == nil {
